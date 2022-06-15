@@ -1,47 +1,47 @@
 const path = require('path');
-const HtmlWebpackPlugin =require('html-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+
 
 module.exports = {
   //Punto de entrada
   entry: './src/index.js',
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'bundle.js',
+    filename: 'bundle.js'
   },
-  resolve:{
-    extensions:['.js', 'jsx']
+  resolve: {
+    extensions: ['.js', '.jsx']
   },
 
   //Modulos que definen las reglas de optimización mediante loaders
   module:{
-
     rules:[
       //Optimización de JavaScript
       {
-        test: /\.(.js|jsx)$/,
+        test: /\.(js|jsx)$/,
         exclude: /node_modules/,
-        use:{
+        use: {
           loader: 'babel-loader'
         }
       },
       //Optimización de Html
       {
         test: /\.html$/,
-        use:[
+        use: [
           {
             loader: 'html-loader'
           }
-        ],
+        ]
       }
     ]
   },
 
   //Plugins
-  plugins:[
+  plugins: [
     new HtmlWebpackPlugin({
-      template: './public/idex.html',
+      template: './public/index.html',
       filename: './index.html'
-    })
+    }),
   ],
   //Servidor de salida de la App
   devServer: {

@@ -1,7 +1,10 @@
-import React from 'react'
+import React from 'react';
 
-export const App = () => {
-  return (
-    <h1>Merge Conf</h1>
-  )
-}
+const App = () => {
+  return(
+  <h1>
+    Hola Mundo
+  </h1>
+)};
+
+export default App;

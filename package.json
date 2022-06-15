@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack serve",
-    "build": "webpack --mode p"
+    "build": "webpack --mode production"
   },
   "repository": {
     "type": "git",
@@ -28,6 +28,7 @@
   "homepage": "https://github.com/joseluis1061/conf-merch#readme",
   "dependencies": {
     "react": "^18.2.0",
+    "react-autocomplete": "^1.8.1",
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
