@@ -1,5 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 
 module.exports = {
@@ -32,21 +33,41 @@ module.exports = {
             loader: 'html-loader'
           }
         ]
+      },
+      //Optimización CSS
+      {
+        test: /\.css$/,
+        use:[
+          {
+            loader: MiniCssExtractPlugin.loader,
+          },
+          'css-loader'
+        ]
       }
+
     ]
   },
 
-  //Plugins
+  //Plugins para indicar las salidas
   plugins: [
+    //Html
     new HtmlWebpackPlugin({
       template: './public/index.html',
       filename: './index.html'
     }),
+
+    //Css
+    new MiniCssExtractPlugin({
+      filename: 'assets/[name].css'
+    }),
   ],
   //Servidor de salida de la App
   devServer: {
-    contendBase: path.join(__dirname, 'dist'),
+    static: {
+      directory: path.join(__dirname, 'public'),
+    },
     compress: true,
-    port: 3005,
-  }
+    port: 9000,
+
+  },
 }
