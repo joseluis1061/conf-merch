@@ -2,50 +2,48 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
-
 module.exports = {
   //Punto de entrada
   entry: './src/index.js',
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'bundle.js'
+    filename: 'bundle.js',
   },
   resolve: {
-    extensions: ['.js', '.jsx']
+    extensions: ['.js', '.jsx'],
   },
 
   //Modulos que definen las reglas de optimización mediante loaders
-  module:{
-    rules:[
+  module: {
+    rules: [
       //Optimización de JavaScript
       {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
         use: {
-          loader: 'babel-loader'
-        }
+          loader: 'babel-loader',
+        },
       },
       //Optimización de Html
       {
         test: /\.html$/,
         use: [
           {
-            loader: 'html-loader'
-          }
-        ]
+            loader: 'html-loader',
+          },
+        ],
       },
       //Optimización CSS
       {
         test: /\.css$/,
-        use:[
+        use: [
           {
             loader: MiniCssExtractPlugin.loader,
           },
-          'css-loader'
-        ]
-      }
-
-    ]
+          'css-loader',
+        ],
+      },
+    ],
   },
 
   //Plugins para indicar las salidas
@@ -53,12 +51,12 @@ module.exports = {
     //Html
     new HtmlWebpackPlugin({
       template: './public/index.html',
-      filename: './index.html'
+      filename: './index.html',
     }),
 
     //Css
     new MiniCssExtractPlugin({
-      filename: 'assets/[name].css'
+      filename: 'assets/[name].css',
     }),
   ],
   //Servidor de salida de la App
@@ -68,6 +66,5 @@ module.exports = {
     },
     compress: true,
     port: 9000,
-
   },
-}
+};
