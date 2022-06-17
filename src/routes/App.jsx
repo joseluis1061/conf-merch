@@ -1,12 +1,12 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import {Home} from "../containers/Home";
-import {Checkout} from "../containers/Checkout";
-import {Success} from "../containers/Success";
-import {Payment} from "../containers/Payment";
-import {Information} from "../containers/Information";
-import {NotFound} from "../containers/NotFound";
+import { Home } from "../containers/Home";
+import { Checkout} from "../containers/Checkout";
+import { Success } from "../containers/Success";
+import { Payment } from "../containers/Payment";
+import { Information } from "../containers/Information";
+import { NotFound } from "../containers/NotFound";
 import Layout from "../components/Layout";
 import '../style/components/App.css';
 
