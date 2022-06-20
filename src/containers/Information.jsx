@@ -1,6 +1,6 @@
 import React from 'react';
 import '../style/components/Information.css';
-
+import { Link } from 'react-router-dom';
 export const Information = () => {
   return (
     <div className="Information">
@@ -23,10 +23,13 @@ export const Information = () => {
         </div>
         <div className="Information-buttons">
           <div className="Information-back">
+
             Regresar
           </div>
           <div className="Information-next">
-            pagar
+            <Link to='/checkout/payment'>
+             Pagar
+            </Link>
           </div>
         </div>
       </div>
