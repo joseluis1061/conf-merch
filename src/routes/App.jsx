@@ -9,21 +9,27 @@ import { Information } from "../containers/Information";
 import { NotFound } from "../containers/NotFound";
 import Layout from "../components/Layout";
 import '../style/components/App.css';
+//Contexto y CustomHook para el carrito 
+import AppContex from '../contex/AppContex';
+import useInitialState from "../hooks/useInitialState";
 
 const App = () => {
+  const initialState = useInitialState();
   return (
-    <BrowserRouter>
-      <Layout>
-        <Routes>
-          <Route exact path="/" element={<Home />}/>      
-          <Route exact path='/checkout' element={<Checkout />} />
-          <Route exact path='/checkout/information' element={<Information />} />
-          <Route exact path='/checkout/payment' element={<Payment />} />
-          <Route exact path='/checkout/success' element={<Success />} />
-          <Route path='*' element={<NotFound />} />
-        </Routes>
-      </Layout>
-    </BrowserRouter>    
+    <AppContex.Provider value={initialState}>
+      <BrowserRouter>
+        <Layout>
+          <Routes>
+            <Route exact path="/" element={<Home />}/>      
+            <Route exact path='/checkout' element={<Checkout />} />
+            <Route exact path='/checkout/information' element={<Information />} />
+            <Route exact path='/checkout/payment' element={<Payment />} />
+            <Route exact path='/checkout/success' element={<Success />} />
+            <Route path='*' element={<NotFound />} />
+          </Routes>
+        </Layout>
+      </BrowserRouter>    
+    </AppContex.Provider>
   );
 };
 
