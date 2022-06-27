@@ -21,10 +21,18 @@ const useInitialState = ()=>{
     });
   };
 
+  const addToBuyer = payload => {
+    setState({
+      ...state,
+      buyer: [...state.buyer, payload]
+    })
+  }
+
   //El customHook retorna nuestras funciones y el estado del carrito
   return {
     addToCart,
     removeFromCart,
+    addToBuyer,
     state,
   };
 };
