@@ -10,13 +10,13 @@ import { NotFound } from "../containers/NotFound";
 import Layout from "../components/Layout";
 import '../style/components/App.css';
 //Contexto y CustomHook para el carrito 
-import AppContex from '../contex/AppContex';
-import useInitialState from "../hooks/useInitialState";
+import AppContext from '../contex/AppContext';
+import useInitialState from '../hooks/useInitialState';
 
 const App = () => {
   const initialState = useInitialState();
   return (
-    <AppContex.Provider value={initialState}>
+    <AppContext.Provider value={initialState}>
       <BrowserRouter>
         <Layout>
           <Routes>
@@ -29,7 +29,7 @@ const App = () => {
           </Routes>
         </Layout>
       </BrowserRouter>    
-    </AppContex.Provider>
+    </AppContext.Provider>
   );
 };
 

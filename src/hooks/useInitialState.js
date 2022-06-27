@@ -1,36 +1,32 @@
-import { useState } from "react";
+import { useState } from 'react';
 import initialState from '../initialState';
-
 
 const useInitialState = ()=>{
   const [state, setState] = useState(initialState);
 
   //Funciones para modificar el estado
-  const addToCart = payload =>{
+  const addToCart = payload => {
+    //Funciones para modificar el estado
     setState({
-      ...state,
       //Modifica la opción cart agrega
-      cart:[...state.cart, payload]
+      ...state,
+      cart: [...state.cart, payload],
     });
   };
 
-  const removeToCart = payload =>{
+  const removeFromCart = payload => {
     setState({
       ...state,
-      //Modifica la opción cart elimina
-      cart:state.cart.filter((item)=>{
-        item.id != payload.id
-      })
-    })
+      cart: state.cart.filter(items => items.id !== payload.id),
+    });
   };
 
   //El customHook retorna nuestras funciones y el estado del carrito
-  return{
+  return {
     addToCart,
-    removeToCart,
+    removeFromCart,
     state,
   };
-
 };
 
 export default useInitialState;
