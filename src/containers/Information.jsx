@@ -1,12 +1,13 @@
 import React from 'react';
 import { useRef, useContext} from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import AddContext from '../contex/AppContext'
 import '../style/components/Information.css';
 
 export const Information = () => {
   const {state, addToBuyer} = useContext(AddContext);
   const form = useRef(null);
+  const navigate = useNavigate();
   const { cart } = state;
 
   const handleSubmit=()=>{
@@ -23,6 +24,7 @@ export const Information = () => {
       'phone' : formData.get('phone') 
     }
     addToBuyer(buyer);
+    navigate('/checkout/payment');
   };
 
   return (
