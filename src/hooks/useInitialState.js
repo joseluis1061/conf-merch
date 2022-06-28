@@ -28,11 +28,19 @@ const useInitialState = ()=>{
     })
   }
 
+  //Nueva orden de compra
+  const addNewOrder = payload =>{
+    setState({
+      ...state,
+      orders: [...state.orders, payload]
+    })
+  }
   //El customHook retorna nuestras funciones y el estado del carrito
   return {
     addToCart,
     removeFromCart,
     addToBuyer,
+    addNewOrder,
     state,
   };
 };
