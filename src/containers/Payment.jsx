@@ -22,7 +22,6 @@ export const Payment = ({ history }) => {
 
   //Función que registra los datos de compra y cambia de pagina
   const handlePaymentSuccess = (data) => {
-    console.log(data)
     if (data.status === 'COMPLETED') {
       const newOrder = {
         buyer,
