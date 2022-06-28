@@ -36,7 +36,6 @@
     }
   },
   "dependencies": {
-    "@react-google-maps/api": "^2.12.0",
     "braintree": "^3.11.0",
     "react": "^18.2.0",
     "react-autocomplete": "^1.8.1",
@@ -49,6 +48,8 @@
     "@babel/eslint-parser": "^7.18.2",
     "@babel/preset-env": "^7.18.2",
     "@babel/preset-react": "^7.17.12",
+    "@react-google-maps/api": "^2.12.0",
+    "axios": "^0.27.2",
     "babel-loader": "^8.2.5",
     "css-loader": "^6.7.1",
     "dotenv-webpack": "^7.1.1",

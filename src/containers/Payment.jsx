@@ -1,12 +1,13 @@
 import React, { useContext } from 'react';
 import { PayPalButton } from 'react-paypal-button-v2';
+import { useNavigate } from 'react-router-dom';
 import AppContext from '../contex/AppContext';
 import '../style/components/Payment.css';
 
 export const Payment = ({ history }) => {
   const { state, addNewOrder } = useContext(AppContext);
   const { cart, buyer } = state;
-
+  const navigate = useNavigate();
   //Opciones de pago
   const paypalOtions = {
     clientId: process.env.REACT_APP_CLIENT_ID,
@@ -22,6 +23,8 @@ export const Payment = ({ history }) => {
 
   //Función que registra los datos de compra y cambia de pagina
   const handlePaymentSuccess = (data) => {
+    console.log("Datos");
+    console.log(data);
     if (data.status === 'COMPLETED') {
       const newOrder = {
         buyer,
@@ -29,7 +32,7 @@ export const Payment = ({ history }) => {
         payment: data
       }
       addNewOrder(newOrder);
-      history.push('/checkout/success')
+      navigate('/checkout/success')
     }
   }
   //Total de la compra
