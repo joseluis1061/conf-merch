@@ -9,7 +9,7 @@ export const Payment = ({ history }) => {
 
   //Opciones de pago
   const paypalOtions = {
-    clientId: 'ATN4MgsCVKSXinkSTL1YqlANTikW5fXyo5C7TkyVUG7JB0DTr1G2aabkWFF9Uz6kKo61tL48cfWpomc4',
+    clientId: process.env.REACT_APP_CLIENT_ID,
     intent: 'capture',
     currency: 'USD'
   }
@@ -22,7 +22,7 @@ export const Payment = ({ history }) => {
 
   //Función que registra los datos de compra y cambia de pagina
   const handlePaymentSuccess = (data) => {
-
+    console.log(data)
     if (data.status === 'COMPLETED') {
       const newOrder = {
         buyer,
