@@ -1,12 +1,13 @@
 import React, { useContext } from 'react';
 import { PayPalButton } from 'react-paypal-button-v2';
+import { useNavigate } from 'react-router-dom';
 import AppContext from '../contex/AppContext';
 import '../style/components/Payment.css';
 
 export const Payment = ({ history }) => {
   const { state, addNewOrder } = useContext(AppContext);
   const { cart, buyer } = state;
-
+  const navigation = useNavigate();
   //Opciones de pago
   const paypalOtions = {
     clientId: process.env.REACT_APP_CLIENT_ID,
@@ -29,7 +30,7 @@ export const Payment = ({ history }) => {
         payment: data
       }
       addNewOrder(newOrder);
-      history.push('/checkout/success')
+      navigation('/checkout/success');
     }
   }
   //Total de la compra
