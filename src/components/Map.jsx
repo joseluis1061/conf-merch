@@ -1,22 +1,30 @@
 import React from 'react';
 import { MapContainer, TileLayer, Marker } from 'react-leaflet';
-import '../style/components/Map.css'
-const Map = () => {
+import '../style/components/Map.css';
+
+const Map = ({location}) => {
+  
+  console.log(`MAPA LOCATION`);
+  console.log(location);
+  const defaultCenter = {
+    lat: location.latitude, lng: location.longitude
+  }
+  console.log(defaultCenter);
   return (
     <div className='leaflet-container'>
       <link
         rel="stylesheet"
         href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
         integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
-        crossorigin=""
+        crossOrigin="anonymous"
       />
 
-      <MapContainer center={[51.505, -0.09]} zoom={16} scrollWheelZoom={false}>
+      <MapContainer center={[defaultCenter.lat, defaultCenter.lng]} zoom={16} scrollWheelZoom={false}>
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
-        <Marker position={[51.505, -0.09]}>
+        <Marker position={[defaultCenter.lat, defaultCenter.lng]}>
           <i className="fa-solid fa-location-dot"></i>
         </Marker>
       </MapContainer> 

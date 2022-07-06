@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import AppContext from '../contex/AppContext';
 import '../style/components/Payment.css';
 
-export const Payment = ({ history }) => {
+export const Payment = () => {
   const { state, addNewOrder } = useContext(AppContext);
   const { cart, buyer } = state;
   const navigation = useNavigate();
