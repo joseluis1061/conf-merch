@@ -3,9 +3,6 @@ import { MapContainer, TileLayer, Marker } from 'react-leaflet';
 import '../style/components/Map.css';
 
 const Map = ({location}) => {
-  
-  console.log(`MAPA LOCATION`);
-  console.log(location);
   const defaultCenter = {
     lat: location.latitude, lng: location.longitude
   }
