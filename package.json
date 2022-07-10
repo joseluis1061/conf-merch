@@ -37,14 +37,15 @@
   },
   "dependencies": {
     "axios": "^0.27.2",
+    "react": "^18.2.0",
     "braintree": "^3.11.0",
     "react-autocomplete": "^1.8.1",
     "react-paypal-button-v2": "^2.6.3",
-    "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-leaflet": "^4.0.1",
     "react-paypal-button": "^4.1.1",
     "react-router-dom": "^6.3.0"
+
   },
   "devDependencies": {
     "@babel/core": "^7.18.5",
