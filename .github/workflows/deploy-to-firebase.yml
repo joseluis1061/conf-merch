@@ -3,7 +3,7 @@ on: [push]
 
 jobs:
   build:
-    name: Build
+    name: Build    
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repo
@@ -12,6 +12,10 @@ jobs:
         run: npm install
       - name: Build
         run: npm run build
+        env: 
+          GOOGLE_POSITION: ${{ secrets.GOOGLE_POSITION }}
+          POSITION_STACK: ${{ secrets.POSITION_STACK }}
+          REACT_APP_CLIENT_ID: ${{ secrets.REACT_APP_CLIENT_ID }}
       - name: Archive Production Artifact
         uses: actions/upload-artifact@master
         with:
